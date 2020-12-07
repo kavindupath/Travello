@@ -1,31 +1,53 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Registration </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css' %}">
+
 </head>
+
 <body>
     <form action='register' method='post'>
+        
         {%csrf_token%}
+        <div class="container">
 
-        <input type="text" name="first_name" placeholder="First Name"><br>
-        <input type="text" name="last_name" placeholder="Last Name"><br>
-        <input type="text" name="username" placeholder="User Name"><br>
-        <input type="email" name="email" placeholder="email "><br>
-        <input type="password" name="password1" placeholder="Password"><br>
-        <input type="password" name="password2" placeholder="Confirm password"><br>
-        <input type="submit" >
+
+        <label for="firstname"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First Name" name="first_name" required>
+
+        <label for="lastname"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter last Name" name="last_name" required>
+
+        <label for="username"><b>UserName</b></label>
+        <input type="text" placeholder="Enter User Name" name="username" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+        <label for="password1"><b>Password</b></label>
+        <input type="password" placeholder="Enter password" name="password1" required>
+
+        <label for="password2"><b>Confirm Password</b></label>
+        <input type="password" placeholder="Confirem Password" name="password2" required>
+
+
+        <button type="submit" class="registerbtn">Register</button>
+        </div>
     </form>
-    
-<div>
-    {% for m in messages %}
-    <h3>{{m}}</h3>
-    {% endfor %}
-</div>
+
+    <div>
+        {% for m in messages %}
+        <h3>{{m}}</h3>
+        {% endfor %}
+    </div>
 
 </body>
+
 </html>
